@@ -2,3 +2,5 @@
 mvn archetype:generate -DgroupId=com.demo.spring.boot -DartifactId=common -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
 
 mvn archetype:generate -DgroupId=com.demo.spring.boot -DartifactId=demo-portal -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+
+mvn archetype:generate -DgroupId=com.demo.spring.boot -DartifactId=bs-api -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
