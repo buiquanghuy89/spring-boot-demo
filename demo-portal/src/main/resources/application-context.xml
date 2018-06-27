@@ -1,0 +1,33 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    <bean class="com.demo.spring.boot.bo.InitObject"/>
+    <bean id="singletonMeter" class="com.demo.spring.boot.bo.Meter" scope="singleton"
+          init-method="init" destroy-method="destroy">
+        <property name="meterCode" value="M1"/>
+        <property name="meterName" value="Gaz"/>
+        <property name="numberOfWheel" value="5"/>
+        <property name="site" ref="site1"/>
+    </bean>
+    <bean id="prototypeMeter" class="com.demo.spring.boot.bo.Meter" scope="prototype"
+          init-method="init" destroy-method="destroy">
+        <property name="meterCode" value="M2"/>
+        <property name="meterName" value="Gaz"/>
+        <property name="numberOfWheel" value="5"/>
+        <property name="site">
+            <bean id="site2" class="com.demo.spring.boot.bo.Site">
+                <property name="siteCode" value="P2"/>
+                <property name="siteName" value="FPT Towner"/>
+                <property name="siteType" value="Building"/>
+            </bean>
+        </property>
+    </bean>
+    <bean id="site1" class="com.demo.spring.boot.bo.Site">
+        <property name="siteCode" value="P1"/>
+        <property name="siteName" value="Crown Towner"/>
+        <property name="siteType" value="Building"/>
+    </bean>
+</beans>

@@ -1,0 +1,80 @@
+.app-pa {
+    height: 100%;
+    display: flex;
+}
+
+.left-wrapper {
+    width: 15%;
+    background-color: #94CDDD;
+    position: relative;
+}
+
+.center-wrapper {
+    width: 85%;
+    position: relative;
+}
+
+.pa-header {
+    /*display: inline-block;*/
+    /*position: absolute;*/
+    /*left: 50%;*/
+    /*transform: translateX(-50%);*/
+    text-align: center;
+}
+
+.pa-select {
+
+}
+
+.checklist-wrapper {
+    margin: 0 10%;
+}
+
+.checklist-item {
+    width: 100%;
+    display: flex;
+}
+
+.checklist-item .toggle-checkbox {
+    margin-right: 15px;
+    margin-top: 2px;
+}
+
+.toggle-checkbox {
+    width: 15px;
+}
+
+.checklist-item p {
+    /*width: calc(100% - 40px);*/
+    /*word-wrap: break-word;*/
+    padding-top: 2px;
+}
+
+p {
+    padding: 0;
+    margin: 0;
+}
+
+.chart-container {
+    width: 90%;
+    height: calc(100% - 60px);
+    margin: 30px auto;
+}
+
+.chart-detail-popup {
+    width: 90%;
+    min-width: 300px;
+    position: absolute;
+    left: 50%;
+    top: 20px;
+    transform: translateX(-50%);
+    height: calc(100% - 60px);
+    z-index: 10;
+    background: #fff;
+    border-radius: 4px;
+    display: none;
+}
+
+#show-chart-detail-container{
+    height: 100%;
+}
