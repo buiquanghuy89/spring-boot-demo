@@ -78,3 +78,28 @@ p {
 #show-chart-detail-container{
     height: 100%;
 }
+
+#jump-to-top-btn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-image: url(../image/jump-to-top.png);
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #80c9ff;
+    background-size: 20px 20px;
+    width: 30px;
+    height: 30px;
+}
+
+#jump-to-top-btn:hover {
+    background-color: #555;
+}
