@@ -9,13 +9,14 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.PropertySource;
 
 import javax.annotation.PostConstruct;
 
 @SpringBootApplication
 @PropertySource(value = {"classpath:application-${spring.profiles.active}.properties"})
-//@EnableCaching
+@EnableCaching
 public class SpringBootDemoApplication extends SpringBootServletInitializer {
     private Logger logger = LoggerFactory.getLogger(SpringBootDemoApplication.class);
     @Value("${random}")

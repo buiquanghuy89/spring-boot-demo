@@ -5,9 +5,10 @@
          monitoring="autodetect"
          dynamicConfig="true">
 
-    <diskStore path="java.io.tmpdir" />
+    <!--<diskStore path="java.io.tmpdir"/>-->
+    <diskStore path="D:/logs/"/>
 
-    <cache name="userFindCache"
+    <cache name="pa_data"
            maxEntriesLocalHeap="10000"
            maxEntriesLocalDisk="1000"
            eternal="false"

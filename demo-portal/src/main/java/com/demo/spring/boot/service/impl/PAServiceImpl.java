@@ -5,6 +5,7 @@ import com.demo.spring.boot.config.Cache;
 import com.demo.spring.boot.service.PAService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
@@ -19,16 +20,17 @@ public class PAServiceImpl implements PAService {
     private String DAY_FORMAT = "yyyy/MM/dd";
     private String DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
 
-
-    public List<Module> getDataByDay(String moduleName, String strFormDate, String strToDate) {
-        logger.info("Start getDataByDay: moduleName=" + moduleName + ", strFormDate=" + strFormDate + ", strToDate=" + strToDate);
+    @Cacheable(cacheNames = "pa_data"
+            , key = "{#moduleName,#strFromDate,#strToDate}")
+    public List<Module> getDataByDay(String moduleName, String strFromDate, String strToDate) {
+        logger.info("Start getDataByDay: moduleName=" + moduleName + ", strFormDate=" + strFromDate + ", strToDate=" + strToDate);
         List<Module> result = new ArrayList<>();
         SimpleDateFormat sdf = new SimpleDateFormat(DAY_FORMAT);
         Date fromDate = null;
         Date toDate = null;
         try {
-            if (strFormDate != null && !strFormDate.equals("")) {
-                fromDate = sdf.parse(strFormDate);
+            if (strFromDate != null && !strFromDate.equals("")) {
+                fromDate = sdf.parse(strFromDate);
 
             }
 
@@ -63,24 +65,26 @@ public class PAServiceImpl implements PAService {
         } catch (Exception ex) {
             logger.error("", "", ex);
         }
-        logger.info("End getDataByDay: moduleName=" + moduleName + ", strFormDate=" + strFormDate + ", strToDate=" + strToDate);
+        logger.info("End getDataByDay: moduleName=" + moduleName + ", strFromDate=" + strFromDate + ", strToDate=" + strToDate);
         return result;
     }
 
-    public List<Module> getAllDataByDay(String strFormDate, String strToDate) {
-        logger.info("Start getAllDataByDay: strFormDate=" + strFormDate + ", strToDate=" + strToDate);
+    public List<Module> getAllDataByDay(String strFromDate, String strToDate) {
+        logger.info("Start getAllDataByDay: strFromDate=" + strFromDate + ", strToDate=" + strToDate);
         List<Module> result = new ArrayList<>();
         try {
             for (String moduleName : Cache.getLstSheetName()) {
-                result.addAll(getDataByDay(moduleName, strFormDate, strToDate));
+                result.addAll(getDataByDay(moduleName, strFromDate, strToDate));
             }
         } catch (Exception ex) {
             logger.error("", "", ex);
         }
-        logger.info("End getAllDataByDay: strFormDate=" + strFormDate + ", strToDate=" + strToDate);
+        logger.info("End getAllDataByDay: strFromDate=" + strFromDate + ", strToDate=" + strToDate);
         return result;
     }
 
+    @Cacheable(cacheNames = "pa_data"
+            , key = "{#moduleName,#dt}")
     public List<Module> getDataDetail(String moduleName, Long dt) {
         logger.info("Start getDataDetail: moduleName=" + moduleName + ", dt=" + dt);
         List<Module> result = new ArrayList<>();
