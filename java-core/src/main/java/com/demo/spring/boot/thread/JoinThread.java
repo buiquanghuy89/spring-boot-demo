@@ -1,5 +1,7 @@
 package com.demo.spring.boot.thread;
 
+import com.demo.spring.boot.StringUtils;
+
 /**
  * Created by HuyBQ on 9/16/2016.
  */
@@ -16,11 +18,12 @@ public class JoinThread extends Thread{
     public void run() {
 
         for (int i = 1; i < count + 1; i++) {
-            System.out.println("Hello from " + this.threadName + " " + i);
-            try {
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-            }
+            StringUtils.print("Hello from " + this.threadName + " " + i);
+//            System.out.println("Hello from " + this.threadName + " " + i);
+//            try {
+//                Thread.sleep(2000);
+//            } catch (InterruptedException e) {
+//            }
         }
         System.out.println("\n==> Thread " + threadName + " end!\n");
     }

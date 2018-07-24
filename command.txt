@@ -8,3 +8,5 @@ mvn archetype:generate -DgroupId=com.demo.spring.boot -DartifactId=bs-api -Darch
 mvn archetype:generate -DgroupId=com.demo.spring.boot -DartifactId=java-core -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
 
 mvn archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-webapp -DgroupId=com.mycompany.app -DartifactId=my-webapp
+
+mvn archetype:generate -DgroupId=com.demo.spring.boot -DartifactId=data-redis -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false

@@ -14,6 +14,10 @@
     <name>java-core</name>
     <url>http://maven.apache.org</url>
     <dependencies>
-
+        <dependency>
+            <groupId>com.google.apis</groupId>
+            <artifactId>google-api-services-drive</artifactId>
+            <version>v3-rev124-1.23.0</version>
+        </dependency>
     </dependencies>
 </project>
