@@ -4,8 +4,8 @@ package com.demo.spring.boot.extractHtml;
  * Created by bqhuy on 7/23/2018.
  */
 public class HtmlLink {
-    String link;
-    String title;
+    private String link;
+    private String title;
 
     @Override
     public String toString() {
