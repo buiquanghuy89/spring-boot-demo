@@ -2,6 +2,7 @@ package com.demo.spring.boot;
 
 import com.demo.spring.boot.entities.student.Person;
 import com.demo.spring.boot.entities.student.Student;
+import com.google.gson.Gson;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -212,6 +213,25 @@ public class Test {
         BigDecimal d1 = new BigDecimal("1.14");
         System.out.println((d1.subtract(new BigDecimal("1"))).multiply(new BigDecimal("100")));
 
+        List<Integer> lst1 = new ArrayList<>();
+        List<Integer> lst2 = new ArrayList<>();
+        for (int ii = -200; ii < 200; ii++) {
+            lst1.add(Integer.parseInt("" + ii));
+            lst2.add(Integer.parseInt("" + ii));
+        }
+        for (int ii = 0; ii < 400; ii++) {
+            if (lst1.get(ii) != lst2.get(ii)) {
+                System.out.println(lst1.get(ii) + " != " + lst2.get(ii));
+            }
+        }
+
+        Gson gson = new Gson();
+        Set<String> sTemp = new HashSet<>();
+        sTemp.add("B");
+        sTemp.add("A");
+        sTemp.add("C");
+        sTemp.add("B");
+        System.out.println(gson.toJson(sTemp));
         int foo = 1;
     }
 
