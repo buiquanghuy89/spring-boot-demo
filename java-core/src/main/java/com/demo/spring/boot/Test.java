@@ -212,6 +212,74 @@ public class Test {
         BigDecimal d1 = new BigDecimal("1.14");
         System.out.println((d1.subtract(new BigDecimal("1"))).multiply(new BigDecimal("100")));
 
+        //thu tu * or / -> + or -
+        System.out.println(1 + 2 - 3 * 4 / 2 * 3);
+        Date current = new Date();
+        System.out.println(current);
+        changeNumber(current);
+        System.out.println(current);
+
+        Date currentTime;
+        //List interface
+        List<String> lstName = new ArrayList<>();
+        System.out.println("ArrayList");
+        currentTime = new Date();
+        lstName.add("1");
+        System.out.println("add time: " + (new Date().getTime() - current.getTime()));
+        lstName.add("2");
+        System.out.println("add time: " + (new Date().getTime() - current.getTime()));
+        lstName.add("3");
+        System.out.println("add time: " + (new Date().getTime() - current.getTime()));
+        lstName.remove("2");
+        System.out.println("remove time: " + (new Date().getTime() - current.getTime()));
+
+        List<String> linkedListName = new LinkedList<>();
+        System.out.println("LinkedList");
+        currentTime = new Date();
+        linkedListName.add("4");
+        System.out.println("add time: " + (new Date().getTime() - current.getTime()));
+        linkedListName.add("5");
+        System.out.println("add time: " + (new Date().getTime() - current.getTime()));
+        linkedListName.add("6");
+        System.out.println("add time: " + (new Date().getTime() - current.getTime()));
+        linkedListName.remove("5");
+        System.out.println("remove time: " + (new Date().getTime() - current.getTime()));
+
+        //Set interface
+        Set<String> sName = new HashSet<>();
+        sName.add("C");
+        sName.add("A");
+        sName.add("AA");
+        sName.add("1AA");
+        sName.add("B");
+        System.out.println("sName: " + sName);
+
+        Set<String> linkedHashSetName = new LinkedHashSet<>();
+        linkedHashSetName.add("C");
+        linkedHashSetName.add("A");
+        linkedHashSetName.add("AA");
+        linkedHashSetName.add("1AA");
+        linkedHashSetName.add("B");
+        System.out.println("linkedHashSetName: " + linkedHashSetName);
+
+        //Map interface
+        Map<String, String> linkedHashMapName = new LinkedHashMap<>();
+        linkedHashMapName.put("Huy", "Bui Quang Huy");
+        linkedHashMapName.put("Anh", "Bui Quang Anh");
+        linkedHashMapName.put("Tuan", "Bui Quang Tuan");
+        System.out.println("linkedHashMapName: " + linkedHashMapName);
+
+        Map<String, String> treeMapName = new TreeMap<>(new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return o2.compareTo(o1);
+            }
+        }
+        );
+        treeMapName.put("Huy", "Bui Quang Huy");
+        treeMapName.put("Anh", "Bui Quang Anh");
+        treeMapName.put("Tuan", "Bui Quang Tuan");
+        System.out.println("treeMapName: " + treeMapName);
         int foo = 1;
     }
 
@@ -262,6 +330,14 @@ public class Test {
                 return 0;
             }
         });
+    }
+
+    private static void changeNumber(Date input) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(input);
+        cal.add(Calendar.DATE, 1);
+        input = cal.getTime();
+        System.out.println(input);
     }
 }
 

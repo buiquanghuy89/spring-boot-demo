@@ -8,7 +8,7 @@ import com.demo.spring.boot.entities.student.Person;
 public class Architect extends Person {
     public static void main(String[] args) {
         Architect a = new Architect();
-        a.temp = "temp";
-        Person.sTemp = "sTemp";
+        a.protectedVariable = "protectedVariable";
+        Person.protectedStaticVariable = "sTemp";
     }
 }

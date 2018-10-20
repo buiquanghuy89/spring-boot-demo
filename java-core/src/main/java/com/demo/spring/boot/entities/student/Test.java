@@ -12,10 +12,10 @@ public class Test extends Earth {
     }
 
     public static void main(String[] args) {
-        Person.sTemp = "sTemp";
-        Person.sTmp = "sTmp";
+        Person.defaultStaticVariable = "defaultStaticVariable";
+        Person.protectedStaticVariable = "protectedStaticVariable";
         Person person = new Person();
-        person.tmp = "tmp";
-        person.temp = "temp";
+        person.defaultVariable = "defaultVariable";
+        person.protectedVariable = "protectedVariable";
     }
 }

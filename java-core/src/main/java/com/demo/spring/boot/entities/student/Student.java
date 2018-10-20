@@ -22,7 +22,8 @@ public class Student extends Person implements Serializable{
         s.setMark(1);
         s.setAge(20);
         s.setName("Bui Quang Huy");
-        s.tmp = "tmp";
+        s.defaultVariable = "defaultVariable";
+        s.protectedVariable = "protectedVariable";
 
         String str = "str";
         try {

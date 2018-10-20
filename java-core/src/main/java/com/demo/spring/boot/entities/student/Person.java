@@ -8,18 +8,19 @@ import com.demo.spring.boot.entities.Animal;
 public class Person implements Animal {
     private String name;
     private int age;
-    String tmp;
-    protected String temp;
+    String defaultVariable;
+    protected String protectedVariable;
 
     public Person(String name) {
         this.name = name;
     }
 
     public Person() {
+        A a = new A();
     }
 
-    static String sTmp;
-    protected static String sTemp;
+    static String defaultStaticVariable;
+    protected static String protectedStaticVariable;
 
     public int getAge() {
         return age;
@@ -38,6 +39,7 @@ public class Person implements Animal {
     }
 
     public void Print(String in) {
+
     }
 
     public String toString() {
@@ -45,5 +47,12 @@ public class Person implements Animal {
                 .append("name= ").append(name)
                 .append(", age= ").append(age)
                 .append("}").toString();
+    }
+
+    private class A {
+        public void action() {
+            Person person = new Person();
+            person.age = 2;
+        }
     }
 }
