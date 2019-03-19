@@ -17,6 +17,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.net.URL;
+import java.net.URLClassLoader;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -77,6 +79,13 @@ public class Cache {
     }
 
     public static void main(String[] args) {
+        ClassLoader cl = ClassLoader.getSystemClassLoader();
+        URL[] urls = ((URLClassLoader)cl).getURLs();
+        System.out.println("Classpath:");
+        for(URL url: urls){
+            System.out.println(url.getFile());
+        }
+
         System.out.println("ClassPathXmlApplicationContext -------------------------------------------");
         ApplicationContext context = new ClassPathXmlApplicationContext("application-context.xml");
         System.out.println("scope= singleton");

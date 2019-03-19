@@ -8,8 +8,12 @@ import com.demo.spring.boot.entities.Animal;
 public class Person implements Animal {
     private String name;
     private int age;
+
     String defaultVariable;
     protected String protectedVariable;
+
+    static String defaultStaticVariable;
+    protected static String protectedStaticVariable;
 
     public Person(String name) {
         this.name = name;
@@ -18,9 +22,6 @@ public class Person implements Animal {
     public Person() {
         A a = new A();
     }
-
-    static String defaultStaticVariable;
-    protected static String protectedStaticVariable;
 
     public int getAge() {
         return age;
@@ -43,6 +44,7 @@ public class Person implements Animal {
     }
 
     public String toString() {
+        final String a ="1";
         return new StringBuilder("{")
                 .append("name= ").append(name)
                 .append(", age= ").append(age)

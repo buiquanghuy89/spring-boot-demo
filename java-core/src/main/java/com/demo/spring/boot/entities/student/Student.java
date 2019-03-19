@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Created by HuyBQ on 7/10/2016.
  */
-public class Student extends Person implements Serializable{
+public class Student extends Person implements Serializable {
     private int mark;
     private transient String _transient;
 
@@ -24,6 +24,12 @@ public class Student extends Person implements Serializable{
         s.setName("Bui Quang Huy");
         s.defaultVariable = "defaultVariable";
         s.protectedVariable = "protectedVariable";
+
+        Person p = new Person();
+        p.defaultVariable = "";
+        p.protectedVariable = "";
+        Person.protectedStaticVariable = null;
+        Person.defaultStaticVariable = null;
 
         String str = "str";
         try {
@@ -44,7 +50,7 @@ public class Student extends Person implements Serializable{
         int i = a + 1;//char có thể tham gia phép tính kiểu int
         System.out.println(i);
 
-        float fl=3.45F;
+        float fl = 3.45F;
     }
 
     public String get_transient() {
@@ -61,15 +67,16 @@ public class Student extends Person implements Serializable{
         this._transient = _transient;
     }
 
-    public Student(){}
+    public Student() {
+    }
 
-    public String toString(){
+    public String toString() {
         return new StringBuilder().append("Name=").append(getName())
                 .append(", Age=").append(getAge())
                 .append(", Transient=").append(this._transient).toString();
     }
 
-    public void print(){
+    public void print() {
         System.out.println(toString());
     }
 }
