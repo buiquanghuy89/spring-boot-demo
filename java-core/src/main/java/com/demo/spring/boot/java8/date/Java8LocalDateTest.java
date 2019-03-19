@@ -15,7 +15,7 @@ import java.util.Date;
  * Created by Admin on 1/30/2019.
  */
 public class Java8LocalDateTest {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         // Get the current date and time
         LocalDateTime currentTime = LocalDateTime.now();
         System.out.println("Current DateTime: " + currentTime);
@@ -37,7 +37,7 @@ public class Java8LocalDateTest {
         int day = currentTime.getDayOfMonth();
         int seconds = currentTime.getSecond();
 
-        System.out.println("Month: " + month +" day: " + day +" seconds: " + seconds);
+        System.out.println("Month: " + month + " day: " + day + " seconds: " + seconds);
         System.out.println("date1 format: " + date1.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
 
         LocalDateTime date2 = currentTime.withDayOfMonth(10).withYear(2012);
@@ -60,6 +60,21 @@ public class Java8LocalDateTest {
         LocalDate fromDate = currentDate.minusDays(30);
         System.out.println("currentDate= " + currentDate);
         System.out.println("fromDate= " + fromDate);
-        System.out.println("fromDate= " + Date.from(fromDate.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+        Date _fromDate = Date.from(fromDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
+        System.out.println("fromDate= " + _fromDate);
+        increase(fromDate);
+        increase(_fromDate);
+        System.out.println("fromDate (use method increase): " + fromDate);
+        System.out.println("_fromDate (use method increase): " + _fromDate);
+    }
+
+    private static void increase(LocalDate date) {
+        date = date.plusDays(1);
+        System.out.println("result of method increase " + date);
+    }
+
+    private static void increase(Date date) {
+        date.setTime(new Date().getTime());
+        System.out.println("result of method increase " + date);
     }
 }
