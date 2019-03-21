@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.util.ResourceUtils;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -114,7 +115,7 @@ public class Cache {
         FileInputStream inputStream = null;
         HSSFWorkbook workbook = null;
         try {
-            File file = new File(excelFilePath);
+            File file = ResourceUtils.getFile(excelFilePath);
             Date lastModify = new Date(file.lastModified());
             if (dateModify == null) {
                 dateModify = lastModify;

@@ -35,6 +35,6 @@ public class LoginController {
             model.addAttribute("role", obj.getRole());
             return "result";
         }
-        return "error1";
+        return "error-page";
     }
 }
