@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class ExceptionController {
     @ExceptionHandler(SpringException.class)
     public ModelAndView handleCustomException(SpringException ex) {
-        ModelAndView model = new ModelAndView("exception");
+        ModelAndView model = new ModelAndView("exception-page");
 //        model.addObject("errCode", ex.getExceptionMsg());
         model.addObject("exception", ex);
         return model;
