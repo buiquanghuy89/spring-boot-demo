@@ -19,10 +19,11 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/pa")
+//@Scope(value = WebApplicationContext.SCOPE_REQUEST, proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class PAController {
     @Autowired
     private PAService paService;
-
+//    int i = 0;
     @RequestMapping(method = RequestMethod.GET)
     public String preparePage() {
         return "pa/pa-stock";
@@ -30,12 +31,21 @@ public class PAController {
 
     @RequestMapping(value = "/getModuleIds", method = RequestMethod.GET)
     public ResponseEntity<List<String>> getModuleIds() {
+        System.out.println(this.toString());
+//        try {
+//            i++;
+//            Thread.sleep(10000);
+//            System.out.println("i= " + i);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         return new ResponseEntity<>(Cache.getLstSheetName(), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/getAllDataByDay", method = RequestMethod.GET, params = {"toDate", "fromDate"})
     public ResponseEntity<List<Module>> getAllDataByDay(@RequestParam(value = "fromDate") String fromDate,
                                                         @RequestParam(value = "toDate") String toDate) {
+        System.out.println(this.toString());
         return new ResponseEntity<>(paService.getAllDataByDay(fromDate, toDate), HttpStatus.OK);
     }
 
@@ -43,12 +53,14 @@ public class PAController {
     public ResponseEntity<List<Module>> getDataByDay(@RequestParam(value = "moduleName") String moduleName,
                                                      @RequestParam(value = "fromDate") String fromDate,
                                                      @RequestParam(value = "toDate") String toDate) {
+        System.out.println(this.toString());
         return new ResponseEntity<>(paService.getDataByDay(moduleName, fromDate, toDate), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/getDataDetail", method = RequestMethod.GET, params = {"moduleName", "dt"})
     public ResponseEntity<List<Module>> getDataDetail(@RequestParam(value = "moduleName") String moduleName,
-                                                      @RequestParam(value = "dt") Long dt) {
+                                               @RequestParam(value = "dt") Long dt) {
+        System.out.println(this.toString());
         return new ResponseEntity<>(paService.getDataDetail(moduleName, dt), HttpStatus.OK);
     }
 }
