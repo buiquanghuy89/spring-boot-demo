@@ -18,7 +18,7 @@ import javax.annotation.PostConstruct;
 @PropertySource(value = {"classpath:application-${spring.profiles.active}.properties"})
 @EnableCaching
 public class SpringBootDemoApplication extends SpringBootServletInitializer {
-    private Logger logger = LoggerFactory.getLogger(SpringBootDemoApplication.class);
+    private Logger log = LoggerFactory.getLogger(SpringBootDemoApplication.class);
     @Value("${random}")
     private int version;
     @Value("${pa_data_path}")
@@ -35,7 +35,7 @@ public class SpringBootDemoApplication extends SpringBootServletInitializer {
 
     @PostConstruct
     public void postConstruct() {
-        logger.info("version: {}", version);
+        log.info("version: {}", version);
         if (StringUtils.validString(pa_data_path)) {
             AppConfig.pa_data_path = pa_data_path;
         }
